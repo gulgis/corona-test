@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from django.utils.translation import gettext as _
+
 
 from core import models
 
@@ -10,9 +10,9 @@ class UserAdmin(BaseUserAdmin):
     list_display = ['email', 'name']
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        (_('Personal Info'), {'fields': ('name',)}),
+        (('Dados pessoais'), {'fields': ('name',)}),
         (
-            _('Permissions'),
+            ('Permissoes'),
             {
                 'fields': (
                     'is_active',
@@ -21,7 +21,7 @@ class UserAdmin(BaseUserAdmin):
                 )
             }
         ),
-        (_('Important dates'), {'fields': ('last_login',)}),
+        (('Datas importantes'), {'fields': ('last_login',)}),
     )
     add_fieldsets = (
         (None, {
